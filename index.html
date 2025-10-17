@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Increment Counter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        #counter-value {
+            font-size: 4em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 30px;
+            display: block; /* Ensures it takes up full width for centering */
+        }
+
+        #increment-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            outline: none;
+        }
+
+        #increment-btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        #increment-btn:active {
+            background-color: #1e7e34;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter App</h1>
+        <span id="counter-value">0</span>
+        <button id="increment-btn">Increment</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const incrementBtn = document.getElementById('increment-btn');
+            const counterValueElement = document.getElementById('counter-value');
+
+            // Ensure the initial value is a number, default to 0
+            if (!counterValueElement.textContent || isNaN(parseInt(counterValueElement.textContent, 10))) {
+                counterValueElement.textContent = '0';
+            }
+
+            incrementBtn.addEventListener('click', () => {
+                let currentValue = parseInt(counterValueElement.textContent, 10);
+                currentValue++;
+                counterValueElement.textContent = currentValue;
+            });
+        });
+    </script>
+</body>
+</html>
